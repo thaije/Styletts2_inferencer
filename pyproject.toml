@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "styletts2-inferencer"
 # version = "0.0.1"  # Remove any existing version parameter.
@@ -35,16 +39,12 @@ dependencies = [
     "GitPython"               
 ]
 
-[build-system]
-requires = ["setuptools>=62", "setuptools-scm>=8.0"]
-build-backend = "setuptools.build_meta"
-
-[project.scripts]
-test-styletts2 = "styletts2_inferencer:main"
-
-# [tool.setuptools_scm]
+[tool.setuptools_scm]
 # Set the (relative) location of the Git root repository 
 # root = "."
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.scripts]
+test-styletts2 = "styletts2_inferencer:main"
