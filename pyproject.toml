@@ -35,21 +35,16 @@ dependencies = [
     "GitPython"               
 ]
 
+[build-system]
+requires = ["setuptools>=62", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
 [project.scripts]
 test-styletts2 = "styletts2_inferencer:main"
 
-[tool.setuptools_scm]
+# [tool.setuptools_scm]
 # Set the (relative) location of the Git root repository 
-root = ".."
-
-[tool.setuptools]
-# ...
-package-dir = { "" = "src" }
-# directory containing all the packages (e.g.  src/mypkg1, src/mypkg2)
-include-package-data = true
+# root = "."
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[tool.setuptools.package-data]
-styletts2_inferencer = ["*.pth", "*.yml", "*.t7"]

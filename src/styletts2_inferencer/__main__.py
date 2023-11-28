@@ -50,13 +50,13 @@ class StyleTTS2Inferencer:
         model_dir="StyleTTS2-LJSpeech/Models/LJSpeech/",
         config_file="config.yml",
         model_file="epoch_2nd_00100.pth",
-        device="gpu",
+        device="cuda",
     ):
         print("Initializing StyleTTS2 inferencer..")
         self.model_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), model_dir)
         self.model_path = os.path.join(self.model_dir, model_file)
         self.config_path = os.path.join(self.model_dir, config_file)
-        self.device = "cuda" if device == "gpu" else "cpu"
+        self.device = device
 
         self.to_mel = torchaudio.transforms.MelSpectrogram(
             n_mels=80, n_fft=2048, win_length=1200, hop_length=300
