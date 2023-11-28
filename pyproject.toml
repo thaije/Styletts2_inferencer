@@ -52,4 +52,4 @@ include-package-data = true
 where = ["src"]
 
 [tool.setuptools.package-data]
-mypkg = ["*.pth", "*.yml", "*.t7"]
+styletts2_inferencer = ["*.pth", "*.yml", "*.t7"]
