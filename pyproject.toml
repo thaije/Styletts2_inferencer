@@ -1,0 +1,46 @@
+[project]
+name = "styletts2-inferencer"
+# version = "0.0.1"  # Remove any existing version parameter.
+dynamic = ["version"]
+description = "Uses StyleTTS2 for TTS-ing"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT License" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "SoundFile", # TODO Specify version
+    "torch",
+    "torchaudio",
+    "munch",    
+    "pydub",
+    "pyyaml",
+    "librosa", 
+    "nltk", 
+    "matplotlib", 
+    "accelerate", 
+    "transformers",  
+    "einops",  
+    "einops-exts", 
+    "tqdm", 
+    "typing", 
+    "typing-extensions", 
+    "monotonic-align@git+https://github.com/thaije/monotonic_align.git", 
+    "phonemizer",  
+    "scipy",
+    "GitPython"               
+]
+
+[tool.setuptools_scm]
+# Set the (relative) location of the Git root repository 
+root = ".."
+
+[tool.setuptools]
+# ...
+package-dir = { "" = "src" }
+# directory containing all the packages (e.g.  src/mypkg1, src/mypkg2)
+include-package-data = true

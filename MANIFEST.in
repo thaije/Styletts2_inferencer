@@ -1,0 +1,6 @@
+include src/styletts2_inferencer/Utils/ASR/*.yml
+include src/styletts2_inferencer/Utils/ASR/*.pth
+include src/styletts2_inferencer/Utils/JDC/*.yml
+include src/styletts2_inferencer/Utils/JDC/*.pth
+include src/styletts2_inferencer/Utils/PLBERT/*.yml
+include src/styletts2_inferencer/Utils/PLBERT/*.pth

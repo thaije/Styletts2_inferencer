@@ -1,0 +1,1 @@
+from styletts2_inferencer.__main__ import *
