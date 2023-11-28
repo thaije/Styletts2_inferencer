@@ -1,6 +1,6 @@
-TTS engine pushed in a Python package with easy inferencing functions.
-
-Based on fork from https://github.com/yl4579/StyleTTS2 by Aaron (Yinghao) Li.
+# StyleTTS2 Inferencer
+This python package is a wrapper around the very nice [StyleTTS2](https://github.com/yl4579/StyleTTS2) TTS engine made by Aaron (Yinghao) Li et al. 
+It currently supports converting a specified text into speech which is stored to a specified speech file. 
 
 # How to install: 
 - `sudo apt-get install espeak-ng git`
