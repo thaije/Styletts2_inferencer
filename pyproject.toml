@@ -35,6 +35,9 @@ dependencies = [
     "GitPython"               
 ]
 
+[project.scripts]
+test-styletts2 = "styletts2_inferencer:main"
+
 [tool.setuptools_scm]
 # Set the (relative) location of the Git root repository 
 root = ".."
@@ -44,3 +47,9 @@ root = ".."
 package-dir = { "" = "src" }
 # directory containing all the packages (e.g.  src/mypkg1, src/mypkg2)
 include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mypkg = ["*.pth", "*.yml", "*.t7"]
