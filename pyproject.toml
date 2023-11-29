@@ -19,7 +19,7 @@ classifiers = [
 dependencies = [
     "SoundFile==0.12.*", # TODO Specify version
     "torch==2.1.*",
-    "torchaudio==0.16.*",
+    "torchaudio==2.1.*",
     "munch==4.0.*",    
     "pydub==0.25.*",
     "pyyaml==6.*",
