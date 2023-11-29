@@ -17,26 +17,25 @@ classifiers = [
 ]
 
 dependencies = [
-    "SoundFile", # TODO Specify version
-    "torch",
-    "torchaudio",
-    "munch",    
-    "pydub",
-    "pyyaml",
-    "librosa", 
-    "nltk", 
-    "matplotlib", 
-    "accelerate", 
-    "transformers",  
-    "einops",  
-    "einops-exts", 
-    "tqdm", 
-    "typing", 
-    "typing-extensions", 
+    "SoundFile==0.12.*", # TODO Specify version
+    "torch==2.1.*",
+    "torchaudio==0.16.*",
+    "munch==4.0.*",    
+    "pydub==0.25.*",
+    "pyyaml==6.*",
+    "librosa==0.10.*", 
+    "nltk==3.8.*", 
+    "accelerate==0.24.*", 
+    "transformers==4.*",  
+    "einops==0.*",  
+    "einops-exts==0.0.*", 
+    "tqdm==4.*", 
+    "typing==3.7.*", 
+    "typing-extensions==4.8.*", 
     "monotonic-align@git+https://github.com/thaije/monotonic_align.git", 
-    "phonemizer",  
-    "scipy",
-    "GitPython"               
+    "phonemizer==3.2.*",  
+    "scipy==1.11.*",
+    "GitPython==3.1.*"               
 ]
 
 [tool.setuptools_scm]

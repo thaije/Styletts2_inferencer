@@ -6,14 +6,11 @@ import time
 import librosa
 import numpy as np
 import torch
-import torch.nn.functional as F
 import torchaudio
 import yaml
-from munch import Munch
+import nltk 
 from nltk.tokenize import word_tokenize
-from torch import nn
 import os
-import subprocess
 import phonemizer
 from scipy.io.wavfile import write
 
@@ -21,15 +18,6 @@ from styletts2_inferencer.models import *
 from styletts2_inferencer.text_utils import TextCleaner
 from styletts2_inferencer.utils import *
 from styletts2_inferencer.Utils.PLBERT.util import load_plbert
-
-torch.manual_seed(0)
-torch.backends.cudnn.benchmark = False
-torch.backends.cudnn.deterministic = True
-random.seed(0)
-np.random.seed(0)
-textcleaner = TextCleaner()
-
-
 
 
 def length_to_mask(lengths):
@@ -41,8 +29,6 @@ def length_to_mask(lengths):
     )
     mask = torch.gt(mask + 1, lengths.unsqueeze(1))
     return mask
-
-
 
 
 class StyleTTS2Inferencer:
@@ -57,6 +43,14 @@ class StyleTTS2Inferencer:
         self.model_path = os.path.join(self.model_dir, model_file)
         self.config_path = os.path.join(self.model_dir, config_file)
         self.device = device
+
+        torch.manual_seed(0)
+        torch.backends.cudnn.benchmark = False
+        torch.backends.cudnn.deterministic = True
+        random.seed(0)
+        np.random.seed(0)
+        self.textcleaner = TextCleaner()
+        nltk.download('punkt')
 
         self.to_mel = torchaudio.transforms.MelSpectrogram(
             n_mels=80, n_fft=2048, win_length=1200, hop_length=300
@@ -190,7 +184,7 @@ class StyleTTS2Inferencer:
         ps = word_tokenize(ps[0])
         ps = " ".join(ps)
 
-        tokens = textcleaner(ps)
+        tokens = self.textcleaner(ps)
         tokens.insert(0, 0)
         tokens = torch.LongTensor(tokens).to(self.device).unsqueeze(0)
 
@@ -247,7 +241,7 @@ class StyleTTS2Inferencer:
         ps = word_tokenize(ps[0])
         ps = " ".join(ps)
 
-        tokens = textcleaner(ps)
+        tokens = self.textcleaner(ps)
         tokens.insert(0, 0)
         tokens = torch.LongTensor(tokens).to(self.device).unsqueeze(0)
 
